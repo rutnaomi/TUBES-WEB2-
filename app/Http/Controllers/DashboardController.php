@@ -2,12 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-    public function index()
+    public function mahasiswa()
     {
-        return view('dashboard');
+        $user = Auth::user();
+        return view('dashboard.mahasiswa', compact('user'));
+    }
+
+    public function dosen()
+    {
+        $user = Auth::user();
+        return view('dashboard.dosen', compact('user'));
+    }
+
+    public function pmmdn()
+    {
+        $user = Auth::user();
+        return view('dashboard.pmmdn', compact('user'));
     }
 }
